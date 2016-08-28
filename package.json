@@ -1,0 +1,28 @@
+{
+  "name": "node-red-contrib-elasticsearch-bulk",
+  "version": "0.0.1",
+  "description": "Node RED nodes for Elasticsearch bulk and search",
+  "author": {
+    "name": "Anders Wittfeldt",
+    "url": "http://barometer.se"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wittfeldt/node-red-contrib-elasticsearch-bulk.git"
+  },
+  "keywords": [
+    "node-red",
+    "elasticsearch"
+  ],
+  "node-red": {
+    "nodes": {
+      "bulk": "bulk.js",
+      "scroll": "scroll.js",
+      "remote-server": "remote-server.js"
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "elasticsearch": "^11.0.1"
+  }
+}

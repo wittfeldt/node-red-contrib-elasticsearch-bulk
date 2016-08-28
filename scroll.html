@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    RED.nodes.registerType('scroll',{
+        category: 'Elasticsearch',
+        defaults: {
+          documentIndex: {value: ''},
+          server: { value: "", type: "remote-server" },
+          pageSize: { 
+            value: "1000",
+            validate: RED.validators.number(),
+            required: true 
+          },
+          scrollSec: { 
+            value: "30",
+            validate: RED.validators.number(),
+            required: true 
+          }
+        },
+        color:'#C0DEED',
+        inputs:1,
+        outputs:1,
+        icon: 'elasticsearch.png',
+        align: 'right',
+        label: function() {
+          return this.name || 'scroll';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="scroll">
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-plug"></i> Server</label>
+        <input type="text" id="node-input-server" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-index"><i class="icon-book"></i> Index</label>
+        <input type="text" id="node-input-documentIndex" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-index"><i class="icon-book"></i> Page size</label>
+        <input type="text" id="node-input-pageSize" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-index"><i class="icon-book"></i> Scroll TTL (sec)</label>
+        <input type="text" id="node-input-scrollSec" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-tips">
+      <p>
+        Index and type can be configured here, or set in each message as
+        <code>msg.action.[action]._index</code> and <code>msg.action.[action]._type</code>
+      </p>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="scroll">
+    <p>Scroll</p>
+<pre><code>{
+}
+</code></pre>
+    <p>The keys _index and _type <bold>must</bold> be present, if not set in the node config</>
+    <p>See the <a href="https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html">Elasticsearch documentation</a> for more information.</p>
+</script>
